@@ -1,4 +1,4 @@
 public interface Shape {
-    void area();
-    void perimeter();
+    void calculateCircleArea();
+    void  calculateCircleCircumference();
 }
