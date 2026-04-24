@@ -1,4 +1,4 @@
 public interface Shape {
-    void calculateCircleArea();
-    void  calculateCircleCircumference();
+    double calculateArea();
+    double  calculateCircumference();
 }
