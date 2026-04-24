@@ -1,20 +1,20 @@
 public class Rectangle implements Shape {
+private final double width;
+private final double height;
 
-/*public double calculateRectangleArea(double width, double height) {
-        return width * height;
-    }
+public Rectangle(double width, double height){
+    this.width = width;
+    this.height = height;
+}
 
-    public double calculateRectanglePerimeter(double width, double height) {
-        return 2 * (width + height);
-    }*/
 
     @Override
     public double calculateArea() {
-        return 0;
+        return width * height;
     }
 
     @Override
     public double calculateCircumference() {
-        return 0;
+        return 2 * (width + height);
     }
 }
