@@ -1,4 +1,4 @@
-public class Circle implements Shape{
+public class Circle implements Shape {
 
 /*
     public double calculateCircleArea(double radius) {
@@ -19,3 +19,5 @@ public class Circle implements Shape{
         return 0;
     }
 }
+
+
