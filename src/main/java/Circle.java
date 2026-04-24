@@ -1,23 +1,26 @@
+import com.sun.source.tree.TryTree;
+
 public class Circle implements Shape {
 
-/*
+private  double try2;
+ private double radius;
 
-    public double calculateCircleArea(double radius) {
-        return Math.PI * radius * radius;
-    }
+ Circle(double radius){
+     this.radius = radius;
+ }
 
-    public double calculateCircleCircumference(double radius) {
-        return 2 * Math.PI * radius;
-    }*/
+ public double getRadius(){
+     return radius;
+ }
 
     @Override
     public double calculateArea() {
-        return 0;
+      return Math.PI * radius * radius;
     }
 
     @Override
     public double calculateCircumference() {
-        return 0;
+        return  2 * Math.PI * radius;
     }
 }
 
