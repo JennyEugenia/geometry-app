@@ -4,7 +4,7 @@ public class ConsoleUI {
 
     private Scanner scanner = new Scanner(System.in);
 
-    public int menu() {
+    public int start() {
         System.out.println("\n 🧮 Geometry Calculator 🧮 ");
         System.out.println("1. Circle");
         System.out.println("2. Rectangle");
