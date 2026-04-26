@@ -2,9 +2,10 @@ import java.util.Scanner;
 
 public class ConsoleUI {
 
-    private Scanner scanner = new Scanner(System.in);
+   Scanner scanner = new Scanner(System.in);
 
-    public int menu() {
+    public int start() {
+        System.out.println("Choose shape: circle / rectangle");
         System.out.println("\n 🧮 Geometry Calculator 🧮 ");
         System.out.println("1. Circle");
         System.out.println("2. Rectangle");
@@ -13,4 +14,5 @@ public class ConsoleUI {
 
         return scanner.nextInt();
     }
+
 }
