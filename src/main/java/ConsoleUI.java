@@ -37,11 +37,11 @@ public class ConsoleUI {
     }
 
     private void circle() {
-        System.out.print("Inset radius number");
-        int number = scanner.nextInt();
-
-        Circle circle = new Circle(number);
-        circle.calculateArea();
+        System.out.println("Inset radius number");
+        int radius = scanner.nextInt();
+        Circle circle = new Circle(radius);
+        double area = circle.calculateArea();
+        System.out.println("Area : " + area);
     }
 
 
