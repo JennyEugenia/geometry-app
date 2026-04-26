@@ -38,25 +38,30 @@ public class ConsoleUI {
     }
 
     private void circle() {
-        System.out.println("CalculateArea press 1 | Calculate Circumference press 2");
-        int choice = scanner.nextInt();
 
-        if (choice == 1) {
-            System.out.println("Inset radius number");
-            double radius = scanner.nextInt();
-            Circle circle = new Circle(radius);
-            double area = circle.calculateArea();
-            System.out.printf("Area : %.2f%n", area);
-        } else if (choice == 2) {
-            System.out.println("Inset radius number");
-            double radius = scanner.nextInt();
-            Circle circle = new Circle(radius);
-            double area = circle.calculateArea();
-            System.out.printf("Area : %.2f%n", area);
-        } else {
-            System.out.println("Insert the right number!");
+while(true) {
+    System.out.println("CalculateArea press 1 | Calculate Circumference press 2");
+    int choice = scanner.nextInt();
+
+    if (choice == 1) {
+        System.out.println("Inset radius number");
+        double radius = scanner.nextInt();
+        Circle circle = new Circle(radius);
+        double area = circle.calculateArea();
+        System.out.printf("Area : %.2f%n", area);
+        break;
+    } else if (choice == 2) {
+        System.out.println("Inset radius number");
+        double radius = scanner.nextInt();
+        Circle circle = new Circle(radius);
+        double area = circle.calculateArea();
+        System.out.printf("Area : %.2f%n", area);
+        break;
+    } else {
+        System.out.println("Insert the right number!");
         }
     }
+}
     private int readInt () {
             while (!scanner.hasNextInt()) {
                 printError("Indtast et tal!");
