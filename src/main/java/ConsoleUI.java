@@ -2,10 +2,10 @@ import java.util.Scanner;
 
 public class ConsoleUI {
 
-    private Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner = new Scanner(System.in);
 
 
-    public int start() {
+    public void start() {
         System.out.println("\n 🧮 Geometry Calculator 🧮 ");
         System.out.println("1. Circle");
         System.out.println("2. Rectangle");
@@ -20,14 +20,12 @@ public class ConsoleUI {
                 case 2 -> rectangle();
                 case 3 -> triangle();
                 case 4 -> {
-                    return choice;
                 }
                 default -> printError("Invalid choice");
             }
         } catch (Exception e) {
             printError(e.getMessage());
         }
-        return choice;
     }
 
     private void triangle() {
