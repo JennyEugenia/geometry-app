@@ -22,7 +22,7 @@ public class ConsoleUI {
                 case 4 -> {
                     return choice;
                 }
-                default -> printError("Ugyldigt valg");
+                default -> printError("Invalid choice");
             }
         } catch (Exception e) {
             printError(e.getMessage());
@@ -34,47 +34,76 @@ public class ConsoleUI {
     }
 
     private void rectangle() {
+        System.out.println("CalculateArea press 1 | Calculate Circumference press 2");
+        int choice = scanner.nextInt();
+
+        if (choice == 1) {
+            System.out.println("Inset width number");
+            double width = scanner.nextInt();
+            System.out.println("Inset height number");
+            double height = scanner.nextInt();
+
+            Rectangle rectangle = new Rectangle(width, height);
+            double area = rectangle.calculateArea();
+            System.out.printf("Area : %.2f%n", area);
+
+        } else if (choice == 2) {
+            System.out.println("Inset width number");
+            double width = scanner.nextInt();
+            System.out.println("Inset height number");
+            double height = scanner.nextInt();
+
+            Rectangle rectangle = new Rectangle(width, height);
+            double circumference = rectangle.calculateCircumference();
+            System.out.printf("Circumference : %.2f%n", circumference);
+
+        } else {
+            System.out.println("Insert the right number!");
+        }
+        start();
     }
+
 
     private void circle() {
 
-while(true) {
-    System.out.println("CalculateArea press 1 | Calculate Circumference press 2");
-    int choice = scanner.nextInt();
+        while (true) {
+            System.out.println("CalculateArea press 1 | Calculate Circumference press 2");
+            int choice = scanner.nextInt();
 
-    if (choice == 1) {
-        System.out.println("Inset radius number");
-        double radius = scanner.nextInt();
-        Circle circle = new Circle(radius);
-        double area = circle.calculateArea();
-        System.out.printf("Area : %.2f%n", area);
-        break;
-    } else if (choice == 2) {
-        System.out.println("Insert radius number");
-        double radius = scanner.nextInt();
+            if (choice == 1) {
+                System.out.println("Inset radius number");
+                double radius = scanner.nextInt();
+                Circle circle = new Circle(radius);
+                double area = circle.calculateArea();
+                System.out.printf("Area : %.2f%n", area);
+                break;
+            } else if (choice == 2) {
+                System.out.println("Insert radius number");
+                double radius = scanner.nextInt();
 
-        Circle circle = new Circle(radius);
-        double circumference = circle.calculateCircumference();
-        System.out.printf("Circumference : %.2f%n", circumference);
-        break;
-    } else {
-        System.out.println("Insert the right number!");
+                Circle circle = new Circle(radius);
+                double circumference = circle.calculateCircumference();
+                System.out.printf("Circumference : %.2f%n", circumference);
+                break;
+            } else {
+                System.out.println("Insert the right number!");
+            }
         }
-}
         start();
     }
-    private int readInt () {
-            while (!scanner.hasNextInt()) {
-                printError("Indtast et tal!");
-                scanner.next();
-            }
-            int number = scanner.nextInt();
-            scanner.nextLine();
-            return number;
-        }
 
-        private void printError (String message){
-            System.out.println(" Fejl: " + message);
+    private int readInt() {
+        while (!scanner.hasNextInt()) {
+            printError("Indtast et tal!");
+            scanner.next();
         }
+        int number = scanner.nextInt();
+        scanner.nextLine();
+        return number;
+    }
+
+    private void printError(String message) {
+        System.out.println(" Fejl: " + message);
+    }
 
 }
