@@ -51,8 +51,8 @@ public class ConsoleUI {
         }
 
         public void showResult(Shape shape) {
-            System.out.printf("Area: %.2f%n", shape.area());
-            System.out.printf("Perimeter: %.2f%n", shape.perimeter());
+            System.out.printf("Area: %.2f%n", shape.calculateArea());
+            System.out.printf("Perimeter: %.2f%n", shape.calculateCircumference());
         }
 
         private int readInt() {
