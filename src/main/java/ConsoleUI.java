@@ -14,14 +14,15 @@ public class ConsoleUI {
 
             return readInt();
         }
-
+        // use Array because a single return type is needed that can handle all cases like
+        //circle 1 value (radius), Rectangle 2 values (w, h), Triangle 3 values (a, b, c)
         public double[] readShapeInput(int choice) {
 
             switch (choice) {
 
                 case 1 -> {
                     System.out.println("Enter radius:");
-                    return new double[]{readDouble()};
+                    return new double[]{readDouble()}; // it asked to return value of decimal 5 > 5.0
                 }
 
                 case 2 -> {
@@ -31,7 +32,7 @@ public class ConsoleUI {
                     System.out.println("Enter height:");
                     double h = readDouble();
 
-                    return new double[]{w, h};
+                    return new double[]{w, h}; // double[] is a type (Array type)
                 }
 
                 case 3 -> {
@@ -51,6 +52,8 @@ public class ConsoleUI {
             }
         }
 
+        // Shape shape It's from Interface class "polymorphism"
+        // %.2f >> formats number to 2 decimal : %n >> new line
         public void showResult(Shape shape) {
             System.out.printf("Area: %.2f%n", shape.calculateArea());
             System.out.printf("Perimeter: %.2f%n", shape.calculateCircumference());
