@@ -15,7 +15,7 @@ public class ConsoleUI {
             return readInt();
         }
 
-        public double[] getParameters(int choice) {
+        public double[] readShapeInput(int choice) {
 
             switch (choice) {
 
