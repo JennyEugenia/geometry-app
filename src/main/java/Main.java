@@ -1,14 +1,15 @@
 import java.util.Scanner;
-//kode der skal refactors
+
 public class Main {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Choose shape: circle / rectangle");
+                ConsoleUI ui = new ConsoleUI();
+                ShapeFactory factory = new ShapeFactory();
+                GeometryController controller = new GeometryController(ui, factory);
 
-        String shape = scanner.nextLine();
-
-        scanner.close();
+                controller.run();
     }
 }
+
+
