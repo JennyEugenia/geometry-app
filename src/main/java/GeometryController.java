@@ -1,6 +1,5 @@
 public class GeometryController {
 
-    public class GeometryController {
 
         private final ConsoleUI ui;
         private final ShapeFactory factory;
@@ -11,6 +10,7 @@ public class GeometryController {
         }
 
         public void run() {
+
             while (true) {
 
                 int choice = ui.getMenuChoice();
@@ -27,4 +27,3 @@ public class GeometryController {
             }
         }
     }
-}
