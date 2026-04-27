@@ -1,20 +1,22 @@
 public class ShapeFactory {
 
-    public Shape createShape(String type, double[] params) {
+        public Shape createShape(int type, double[] params) {
 
-        switch (type) {
+            switch (type) {
 
-            case "circle":
-                return new Circle(params[0]);
+                case 1:
+                    return new Circle(params[0]);
 
-            case "rectangle":
-                return new Rectangle(params[0], params[1]);
+                case 2:
+                    return new Rectangle(params[0], params[1]);
 
-            /*case "triangle":
-                return new Triangle(params[0], params[1], params[2]);*/
+                /*case 3:
+                    return new Triangle(params[0], params[1], params[2]);*/
 
-            default:
-                throw new IllegalArgumentException("Unknown shape: " + type);
+                default:
+                    throw new IllegalArgumentException("Invalid shape type: " + type);
+            }
         }
     }
-}
+
+
