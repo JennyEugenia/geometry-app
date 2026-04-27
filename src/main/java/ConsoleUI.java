@@ -5,89 +5,49 @@ public class ConsoleUI {
     private final Scanner scanner = new Scanner(System.in);
 
 
-    public void start() {
+    public int getMenuChoice() {
         System.out.println("\n 🧮 Geometry Calculator 🧮 ");
         System.out.println("1. Circle");
         System.out.println("2. Rectangle");
         System.out.println("3. Triangle ");
         System.out.println("0. Exit");
 
-        int choice = readInt();
+        return readInt();
+    }
+
+    public double[] getParameterForShape(int choice) {
 
         try {
             switch (choice) {
-                case 1 -> circle();
-                case 2 -> rectangle();
+                case 1 -> {
+                    System.out.println("Insert radius number:");
+                    return new double[]{readDouble()};
+
+                }
+
+                case 2 -> {
+                    System.out.println("Insert width number:");
+                    double w = readDouble();
+                    System.out.println("Insert height number:");
+                    double h = readDouble();
+                    return new double[]{w, h};
+                }
                 case 3 -> triangle();
                 case 4 -> {
                 }
-                default -> printError("Invalid choice");
+                default -> printError("Invalid shape");
             }
         } catch (Exception e) {
             printError(e.getMessage());
         }
+        return new double[0];
     }
 
     private void triangle() {
     }
-
-    private void rectangle() {
-        System.out.println("CalculateArea press 1 | Calculate Circumference press 2");
-        int choice = scanner.nextInt();
-
-        if (choice == 1) {
-            System.out.println("Inset width number");
-            double width = scanner.nextInt();
-            System.out.println("Inset height number");
-            double height = scanner.nextInt();
-
-            Rectangle rectangle = new Rectangle(width, height);
-            double area = rectangle.calculateArea();
-            System.out.printf("Area : %.2f%n", area);
-
-        } else if (choice == 2) {
-            System.out.println("Inset width number");
-            double width = scanner.nextInt();
-            System.out.println("Inset height number");
-            double height = scanner.nextInt();
-
-            Rectangle rectangle = new Rectangle(width, height);
-            double circumference = rectangle.calculateCircumference();
-            System.out.printf("Circumference : %.2f%n", circumference);
-
-        } else {
-            System.out.println("Insert the right number!");
-        }
-        start();
-    }
-
-
-    private void circle() {
-
-        while (true) {
-            System.out.println("CalculateArea press 1 | Calculate Circumference press 2");
-            int choice = scanner.nextInt();
-
-            if (choice == 1) {
-                System.out.println("Inset radius number");
-                double radius = scanner.nextInt();
-                Circle circle = new Circle(radius);
-                double area = circle.calculateArea();
-                System.out.printf("Area : %.2f%n", area);
-                break;
-            } else if (choice == 2) {
-                System.out.println("Insert radius number");
-                double radius = scanner.nextInt();
-
-                Circle circle = new Circle(radius);
-                double circumference = circle.calculateCircumference();
-                System.out.printf("Circumference : %.2f%n", circumference);
-                break;
-            } else {
-                System.out.println("Insert the right number!");
-            }
-        }
-        start();
+    public void showResult(Shape shape) {
+        System.out.printf("Area: %.2f%n", shape.calculateArea());
+        System.out.printf("Perimeter: %.2f%n", shape.calculateCircumference());
     }
 
     private int readInt() {
@@ -103,5 +63,11 @@ public class ConsoleUI {
     private void printError(String message) {
         System.out.println(" Fejl: " + message);
     }
-
+    private double readDouble() {
+        while (!scanner.hasNextDouble()) {
+            System.out.println("Enter a valid number!");
+            scanner.next();
+        }
+        return scanner.nextDouble();
+    }
 }
