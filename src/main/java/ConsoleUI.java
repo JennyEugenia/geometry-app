@@ -1,0 +1,77 @@
+import java.util.Scanner;
+
+public class ConsoleUI {
+
+    private final Scanner scanner = new Scanner(System.in);
+
+
+    public int getMenuChoice() {
+        System.out.println("\n 🧮 Geometry Calculator 🧮 ");
+        System.out.println("1. Circle ⭕️️");
+        System.out.println("2. Rectangle ▬");
+        System.out.println("3. Triangle △ ");
+        System.out.println("0. Exit");
+
+            return readInt();
+        }
+        // use Array because a single return type is needed that can handle all cases like
+        //circle 1 value (radius), Rectangle 2 values (w, h), Triangle 3 values (a, b, c)
+        public double[] readShapeInput(int choice) {
+
+            switch (choice) {
+
+                case 1 -> {
+                    System.out.println("Enter radius:");
+                    return new double[]{readDouble()}; // it asked to return value of decimal 5 > 5.0
+                }
+
+                case 2 -> {
+                    System.out.println("Enter width:");
+                    double w = readDouble();
+
+                    System.out.println("Enter height:");
+                    double h = readDouble();
+
+                    return new double[]{w, h}; // double[] is a type (Array type)
+                }
+
+                case 3 -> {
+                    System.out.println("Enter side A:");
+                    double a = readDouble();
+
+                    System.out.println("Enter side B:");
+                    double b = readDouble();
+
+                    System.out.println("Enter side C:");
+                    double c = readDouble();
+
+                    return new double[]{a, b, c};
+                }
+
+                default -> throw new IllegalArgumentException("Invalid choice");
+            }
+        }
+
+        // Shape shape It's from Interface class "polymorphism"
+        // %.2f >> formats number to 2 decimal : %n >> new line
+        public void showResult(Shape shape) {
+            System.out.printf("Area: %.2f%n", shape.calculateArea());
+            System.out.printf("Perimeter: %.2f%n", shape.calculateCircumference());
+        }
+
+        private int readInt() {
+            while (!scanner.hasNextInt()) {
+                System.out.println("Enter a valid number!");
+                scanner.next();
+            }
+            return scanner.nextInt();
+        }
+
+        private double readDouble() {
+            while (!scanner.hasNextDouble()) {
+                System.out.println("Enter a valid number!");
+                scanner.next();
+            }
+            return scanner.nextDouble();
+        }
+    }
