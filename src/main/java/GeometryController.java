@@ -19,7 +19,7 @@ public class GeometryController {
                     break;
                 }
 
-                double[] params = ui.getParameters(choice);
+                double[] params = ui.readShapeInput(choice);
 
                 Shape shape = factory.createShape(choice, params);
 
