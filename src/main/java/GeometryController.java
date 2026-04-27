@@ -15,13 +15,13 @@ public class GeometryController {
 
             while (true) {
 
-                int choice = ui.getMenuChoice();
+                int choiceShape = ui.getMenuChoice();
 
-                if (choice == 0) {
+                if (choiceShape == 0) {
                     break;
                 }
-                double[] params = ui.readShapeInput(choice);
-                Shape shape = factory.createShape(choice, params);
+                double[] numberInput = ui.readShapeInput(choiceShape); // ui called the method from ConsoleUI
+                Shape shape = factory.createShape(choiceShape, numberInput); //factory called method createShape from Shape Factory
                 ui.showResult(shape);
             }
         }
