@@ -1,4 +1,3 @@
-import java.awt.*;
 import java.util.Scanner;
 
 public class ConsoleUI {
@@ -51,17 +50,19 @@ while(true) {
         System.out.printf("Area : %.2f%n", area);
         break;
     } else if (choice == 2) {
-        System.out.println("Inset radius number");
+        System.out.println("Insert radius number");
         double radius = scanner.nextInt();
+
         Circle circle = new Circle(radius);
-        double area = circle.calculateArea();
-        System.out.printf("Area : %.2f%n", area);
+        double circumference = circle.calculateCircumference();
+        System.out.printf("Circumference : %.2f%n", circumference);
         break;
     } else {
         System.out.println("Insert the right number!");
         }
-    }
 }
+        start();
+    }
     private int readInt () {
             while (!scanner.hasNextInt()) {
                 printError("Indtast et tal!");
