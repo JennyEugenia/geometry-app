@@ -1,6 +1,6 @@
 public class ShapeFactory {
 
-    public Shape createShape(int type, double[] params) {
+    public Shape createShape(String type, double[] params) {
 
         switch (type) {
 
@@ -10,8 +10,8 @@ public class ShapeFactory {
             case "rectangle":
                 return new Rectangle(params[0], params[1]);
 
-            case "triangle":
-                return new Triangle(params[0], params[1], params[2]);
+            /*case "triangle":
+                return new Triangle(params[0], params[1], params[2]);*/
 
             default:
                 throw new IllegalArgumentException("Unknown shape: " + type);
